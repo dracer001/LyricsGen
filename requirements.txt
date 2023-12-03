@@ -4,3 +4,5 @@ speechrecognition
 gTTS
 numpy
 keras
+uvicorn[standard]
+gunicorn
