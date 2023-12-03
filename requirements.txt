@@ -7,3 +7,4 @@ keras
 uvicorn[standard]
 gunicorn
 tensorflow
+python-multipart
