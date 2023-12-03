@@ -1,0 +1,6 @@
+fastapi
+pydub
+speechrecognition
+gTTS
+numpy
+keras
