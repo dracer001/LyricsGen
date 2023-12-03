@@ -6,3 +6,4 @@ numpy
 keras
 uvicorn[standard]
 gunicorn
+tensorflow
