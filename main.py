@@ -65,10 +65,10 @@ async def upload_audio_file(file: UploadFile = File(...)):
 
 def generateLyrics(user_input, next_words):
     # Load the saved model
-    model = load_model('ML/models/adele_lyricsM.h5')
+    model = load_model('ML/models/rihanna_lyricsM.h5')
 
     # Load lyrics dataset from file for tokenizer setup
-    with open('ML/datasets/adele.txt', 'r', encoding='utf-8') as file:
+    with open('ML/datasets/rihanna.txt', 'r', encoding='utf-8') as file:
         lyrics_text = file.read()
 
     # Preprocess the text for tokenizer setup
