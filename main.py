@@ -35,6 +35,9 @@ def genLyrics(input_text):
     return generated_text[0]['generated_text']
 
 
+@app.get("/")
+def index():
+    return {"message": "connection successful"}
 
 @app.post("/upload_audio/")
 async def upload_audio_file(file: UploadFile = File(...)):
