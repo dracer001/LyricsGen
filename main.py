@@ -52,13 +52,13 @@ async def upload_audio_file(file: UploadFile = File(...)):
         # new_lyrics = generateLyrics(transcription, 50)
         # Optionally, remove the temporary uploaded file
        
-        speech = gTTS(text=new_lyrics, lang='en', slow=False)
+        # speech = gTTS(text=new_lyrics, lang='en', slow=False)
 # # Saving the converted audio in a file (you can also use .mp3 instead of .wav)
-        speech.save("output.wav")
+        # speech.save("output.wav")
         # Load the audio file content
         # with open('output.wav', 'rb') as audio_file:
             # audio_content = audio_file.read()
-        os.remove(file_location)
+        # os.remove(file_location)
         # return StreamingResponse(io.BytesIO(audio_content), media_type="audio/wav")
         return {"filename": file.filename, "transcription": new_lyrics}
     except Exception as e:
