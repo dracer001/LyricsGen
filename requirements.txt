@@ -8,3 +8,4 @@ uvicorn[standard]
 gunicorn
 tensorflow
 python-multipart
+transformers
