@@ -11,6 +11,8 @@ from keras.preprocessing.sequence import pad_sequences
 from keras.preprocessing.text import Tokenizer
 import numpy as np
 
+from transformers import pipeline
+
 app = FastAPI()
 
 def transcribe_audio(audio_file_path):
@@ -19,6 +21,20 @@ def transcribe_audio(audio_file_path):
         audio_data = recognizer.record(source)
         text = recognizer.recognize_google(audio_data)
         return text
+
+
+def genLyrics(input_text):
+    # Load the text generation pipeline using a specific model
+    text_generator = pipeline("text-generation", model="distilgpt2")
+
+    # Example input text as a prompt
+   
+
+    # Generate text based on the input prompt
+    generated_text = text_generator(input_text, max_length=50, num_return_sequences=1)
+    return generated_text[0]['generated_text']
+
+
 
 @app.post("/upload_audio/")
 async def upload_audio_file(file: UploadFile = File(...)):
@@ -34,7 +50,8 @@ async def upload_audio_file(file: UploadFile = File(...)):
         # Transcribe the audio to text
         transcription = transcribe_audio(file_location)
 
-        new_lyrics = generateLyrics(transcription, 50)
+        new_lyrics = genLyrics(transcription)
+        # new_lyrics = generateLyrics(transcription, 50)
         # Optionally, remove the temporary uploaded file
        
         speech = gTTS(text=new_lyrics, lang='en', slow=False)
