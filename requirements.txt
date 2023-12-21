@@ -2,10 +2,6 @@ fastapi
 pydub
 speechrecognition
 gTTS
-numpy
-keras
 uvicorn[standard]
 gunicorn
-tensorflow
 python-multipart
-transformers
