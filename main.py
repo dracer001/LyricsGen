@@ -6,8 +6,18 @@ import os
 import shutil
 import speech_recognition as sr
 from gtts import gTTS
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+# Allow CORS for all origins (*), adjust as needed based on your frontend URL
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Update this with your frontend URL(s)
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 def transcribe_audio(audio_file_path):
     recognizer = sr.Recognizer()
