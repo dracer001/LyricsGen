@@ -1,5 +1,6 @@
 from fastapi import FastAPI, UploadFile, File, Response
 from fastapi.responses import StreamingResponse
+import requests
 import io
 import os
 import shutil
