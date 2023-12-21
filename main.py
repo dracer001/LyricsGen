@@ -45,9 +45,10 @@ async def upload_audio_file(file: UploadFile = File(...)):
         # return StreamingResponse(io.BytesIO(audio_content), media_type="audio/wav")
 
         print(transcription)
-        receiver_url = "https://8c3e-34-81-77-78.ngrok-free.app/gen_lyrics"  # Replace with your receiver's URL
-        data_to_send = transcription
-        response = requests.post(receiver_url, json={"string_data": data_to_send})
+        receiver_url = "https://ebfa-34-81-77-78.ngrok-free.app/gen_lyrics"  # Replace with your receiver's URL
+        data_to_send = {"string_data": transcription}
+        response = requests.post(receiver_ur, json=data_to_send)
+        print(response.json())
         return response.json()
     except Exception as e:
         return {"error": str(e)}
