@@ -48,7 +48,7 @@ async def upload_audio_file(file: UploadFile = File(...)):
         receiver_url = "https://03e5-34-81-77-78.ngrok-free.app/gen_lyrics?string_data="+transcription  # Replace with your receiver's URL
         
         response = requests.post(receiver_url)
-        print(response)
-        return response
+        print(response.json())
+        return response.json()
     except Exception as e:
         return {"error": str(e)}
